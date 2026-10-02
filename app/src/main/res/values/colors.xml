@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="civic_green">#0B6E4F</color>
+    <color name="civic_dark">#12372A</color>
+    <color name="civic_background">#F5F7F9</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>
