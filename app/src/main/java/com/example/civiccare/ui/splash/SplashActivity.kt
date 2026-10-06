@@ -7,6 +7,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.civiccare.R
 import com.example.civiccare.ui.auth.LoginActivity
+import com.example.civiccare.ui.dashboard.DashboardActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -17,12 +18,17 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
 
-            val intent = Intent(
-                this,
-                LoginActivity::class.java
-            )
+            // Already logged in? Skip Login and open the Dashboard
+            val prefs = getSharedPreferences("civiccare_session", MODE_PRIVATE)
+            val isLoggedIn = prefs.getInt("user_id", -1) != -1
 
-            startActivity(intent)
+            val nextScreen = if (isLoggedIn) {
+                DashboardActivity::class.java
+            } else {
+                LoginActivity::class.java
+            }
+
+            startActivity(Intent(this, nextScreen))
 
             finish()
 
