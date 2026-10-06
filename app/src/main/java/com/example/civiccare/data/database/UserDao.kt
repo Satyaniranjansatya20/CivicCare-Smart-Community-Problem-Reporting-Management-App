@@ -24,4 +24,8 @@ interface UserDao {
 
     @Update
     suspend fun updateUser(user: User)
+
+    // Returns how many rows changed: 1 if the email exists, 0 if it doesn't
+    @Query("UPDATE users SET password = :password WHERE email = :email")
+    suspend fun updatePassword(email: String, password: String): Int
 }

@@ -36,6 +36,9 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private val _updateResult = MutableLiveData<Boolean>()
     val updateResult: LiveData<Boolean> = _updateResult
 
+    private val _resetResult = MutableLiveData<Boolean>()
+    val resetResult: LiveData<Boolean> = _resetResult
+
     fun login(email: String, password: String) {
         viewModelScope.launch {
             val user = repository.login(email, password)
@@ -63,6 +66,12 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             repository.updateUser(user)
             _updateResult.value = true
+        }
+    }
+
+    fun resetPassword(email: String, newPassword: String) {
+        viewModelScope.launch {
+            _resetResult.value = repository.resetPassword(email, newPassword)
         }
     }
 }

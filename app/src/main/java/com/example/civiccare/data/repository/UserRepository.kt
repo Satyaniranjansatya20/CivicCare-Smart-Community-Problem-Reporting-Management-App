@@ -46,4 +46,9 @@ class UserRepository(private val userDao: UserDao) {
     suspend fun updateUser(user: User) {
         userDao.updateUser(user)
     }
+
+    // Returns true if the password was changed, false if no account has this email
+    suspend fun resetPassword(email: String, newPassword: String): Boolean {
+        return userDao.updatePassword(email, hashPassword(newPassword)) > 0
+    }
 }
