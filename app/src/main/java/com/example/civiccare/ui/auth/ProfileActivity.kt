@@ -11,6 +11,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.civiccare.R
 import com.example.civiccare.data.model.User
+import com.example.civiccare.utils.SessionManager
 import com.example.civiccare.viewmodel.LoginViewModel
 
 class ProfileActivity : AppCompatActivity() {
@@ -45,11 +46,10 @@ class ProfileActivity : AppCompatActivity() {
 
         btnBack.setOnClickListener { finish() }
 
-        val prefs = getSharedPreferences("civiccare_session", MODE_PRIVATE)
-        val userId = prefs.getInt("user_id", -1)
+        val session = SessionManager(this)
 
         // Nobody is logged in, so go back to Login
-        if (userId == -1) {
+        if (!session.isLoggedIn()) {
             goToLogin()
             return
         }
@@ -71,7 +71,7 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.updateResult.observe(this) { success ->
             if (success) {
                 val newName = etName.text.toString().trim()
-                prefs.edit().putString("name", newName).apply()
+                session.updateName(newName)
                 tvHeaderName.text = newName
                 Toast.makeText(this, "Profile updated", Toast.LENGTH_SHORT).show()
             }
@@ -101,12 +101,12 @@ class ProfileActivity : AppCompatActivity() {
 
         // LOGOUT BUTTON
         btnLogout.setOnClickListener {
-            prefs.edit().clear().apply()
+            session.clear()
             Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
             goToLogin()
         }
 
-        viewModel.loadUser(userId)
+        viewModel.loadUser(session.getUserId())
     }
 
     private fun goToLogin() {

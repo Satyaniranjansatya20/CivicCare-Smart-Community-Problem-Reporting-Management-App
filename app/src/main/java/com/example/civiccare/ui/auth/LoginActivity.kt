@@ -11,6 +11,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.civiccare.R
 import com.example.civiccare.ui.dashboard.DashboardActivity
+import com.example.civiccare.utils.SessionManager
 import com.example.civiccare.viewmodel.LoginResult
 import com.example.civiccare.viewmodel.LoginViewModel
 
@@ -40,7 +41,11 @@ class LoginActivity : AppCompatActivity() {
         viewModel.loginResult.observe(this) { result ->
             when (result) {
                 is LoginResult.Success -> {
-                    saveSession(result.user.id, result.user.role, result.user.name)
+                    SessionManager(this).saveSession(
+                        result.user.id,
+                        result.user.role,
+                        result.user.name
+                    )
                     Toast.makeText(this, "Welcome, ${result.user.name}", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, DashboardActivity::class.java))
                     finish()
@@ -72,16 +77,6 @@ class LoginActivity : AppCompatActivity() {
         tvForgotPassword.setOnClickListener {
             Toast.makeText(this, "Forgot Password clicked", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    // Remember who is logged in (used by Dashboard, Profile and Logout)
-    private fun saveSession(userId: Int, role: String, name: String) {
-        getSharedPreferences("civiccare_session", MODE_PRIVATE)
-            .edit()
-            .putInt("user_id", userId)
-            .putString("role", role)
-            .putString("name", name)
-            .apply()
     }
 
     private fun validateInput(

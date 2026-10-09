@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.civiccare.R
 import com.example.civiccare.ui.auth.ProfileActivity
+import com.example.civiccare.utils.SessionManager
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -28,8 +29,6 @@ class DashboardActivity : AppCompatActivity() {
     // Runs every time the Dashboard appears, so the name updates after editing Profile
     override fun onResume() {
         super.onResume()
-        val prefs = getSharedPreferences("civiccare_session", MODE_PRIVATE)
-        val name = prefs.getString("name", "Citizen") ?: "Citizen"
-        tvGreeting.text = "Hello, $name 👋"
+        tvGreeting.text = "Hello, ${SessionManager(this).getName()} 👋"
     }
 }
