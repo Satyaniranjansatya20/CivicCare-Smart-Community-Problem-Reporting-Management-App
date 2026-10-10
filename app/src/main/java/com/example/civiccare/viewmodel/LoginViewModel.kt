@@ -50,6 +50,18 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // Google sign-in: finds or creates the user, then reports through loginResult
+    fun googleSignIn(name: String, email: String) {
+        viewModelScope.launch {
+            val user = repository.googleSignIn(name, email)
+            _loginResult.value = if (user != null) {
+                LoginResult.Success(user)
+            } else {
+                LoginResult.Failure
+            }
+        }
+    }
+
     fun register(name: String, email: String, phone: String, password: String) {
         viewModelScope.launch {
             _registerResult.value = repository.register(name, email, phone, password)
