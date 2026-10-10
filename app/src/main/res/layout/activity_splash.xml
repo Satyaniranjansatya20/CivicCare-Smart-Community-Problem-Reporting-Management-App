@@ -1,33 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="#0B6E4F">
+    android:background="@drawable/bg_splash_gradient">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:contentDescription="CivicCare logo"
+            android:src="@drawable/ic_civiccare_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="CivicCare 2.0"
+            android:textColor="#1E63D6"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Smart Community Problem Reporting"
+            android:textColor="#12372A"
+            android:textSize="15sp" />
+
+        <ProgressBar
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="32dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#1E63D6" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CivicCare"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="170dp"
+        android:text="Clean  •  Safe  •  Better"
+        android:textColor="#1E63D6"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Smart Community Problem Reporting"
-        android:textColor="#E8F5E9"
-        android:textSize="15sp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_gravity="bottom"
+        android:contentDescription="City"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_city" />
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:indeterminateTint="#FFFFFF" />
-
-</LinearLayout>
+</FrameLayout>

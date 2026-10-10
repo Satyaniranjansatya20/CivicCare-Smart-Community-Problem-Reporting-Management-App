@@ -3,21 +3,21 @@
 
     <style
         name="Theme.CivicCare"
-        parent="Theme.AppCompat.Light.NoActionBar">
+        parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="colorPrimary">#1E63D6</item>
+        <item name="colorPrimaryVariant">#164CA8</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#0B6E4F</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
 
         <item name="android:fontFamily">sans</item>
 
-        <item name="android:windowLightStatusBar">
-            true
-        </item>
+        <item name="android:windowLightStatusBar">true</item>
 
-        <item name="android:statusBarColor">
-            #FFFFFF
-        </item>
+        <item name="android:statusBarColor">#FFFFFF</item>
 
-        <item name="android:navigationBarColor">
-            #FFFFFF
-        </item>
+        <item name="android:navigationBarColor">#FFFFFF</item>
 
     </style>
 

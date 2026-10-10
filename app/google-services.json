@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "219243372159",
+    "project_id": "civiccare-6452a",
+    "storage_bucket": "civiccare-6452a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219243372159:android:8c3b3e552118cec25a294a",
+        "android_client_info": {
+          "package_name": "com.example.civiccare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219243372159-45r7qu5rpjfs6ppph5ujfvdvt6j7vflg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.civiccare",
+            "certificate_hash": "ce74736d005bc55ecae44f2a817ef91726aa572b"
+          }
+        },
+        {
+          "client_id": "219243372159-sl2ie71k6g0uma6rms1oaf7lljm9mak0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIOOWgCbnOWavvSLniibzhCh1z6E89wQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219243372159-sl2ie71k6g0uma6rms1oaf7lljm9mak0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
