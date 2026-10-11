@@ -5,5 +5,9 @@
     <color name="civic_dark">#12372A</color>
     <color name="civic_background">#F5F7F9</color>
     <color name="white">#FFFFFF</color>
+    <color name="civic_blue">#1565C0</color>
+    <color name="civic_page_bg">#F5F7FA</color>
+    <color name="civic_text">#212121</color>
+    <color name="civic_subtext">#757575</color>
 
 </resources>

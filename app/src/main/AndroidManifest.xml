@@ -3,33 +3,28 @@
 
     <application
         android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="CivicCare"
         android:supportsRtl="true"
         android:theme="@style/Theme.CivicCare">
 
         <activity
-            android:name=".ui.dashboard.DashboardActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.auth.RegisterActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.auth.LoginActivity"
-            android:exported="false" />
-
-
-        <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <activity android:name=".ui.auth.LoginActivity" android:exported="false" />
+        <activity android:name=".ui.auth.RegisterActivity" android:exported="false" />
+        <activity android:name=".ui.dashboard.DashboardActivity" android:exported="false" />
+        <activity android:name=".ui.complaint.CategoryActivity" android:exported="false" />
+        <activity android:name=".ui.complaint.ReportComplaintActivity" android:exported="false" />
+        <activity android:name=".ui.complaint.ComplaintListActivity" android:exported="false" />
+        <activity android:name=".ui.complaint.ComplaintDetailsActivity" android:exported="false" />
 
     </application>
 
