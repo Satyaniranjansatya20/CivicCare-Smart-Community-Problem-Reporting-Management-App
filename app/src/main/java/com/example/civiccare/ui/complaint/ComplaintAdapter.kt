@@ -21,6 +21,7 @@ class ComplaintAdapter(
     }
 
     class VH(view: View) : RecyclerView.ViewHolder(view) {
+        val icon: TextView = view.findViewById(R.id.tvIcon)
         val title: TextView = view.findViewById(R.id.tvTitle)
         val status: TextView = view.findViewById(R.id.tvStatus)
         val meta: TextView = view.findViewById(R.id.tvMeta)
@@ -35,6 +36,7 @@ class ComplaintAdapter(
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val c = items[position]
+        holder.icon.text = iconFor(c.category)
         holder.title.text = c.title
         holder.status.text = c.status
         holder.status.setTextColor(
@@ -50,4 +52,15 @@ class ComplaintAdapter(
     }
 
     override fun getItemCount() = items.size
+
+    private fun iconFor(name: String): String = when {
+        name.contains("Road") -> "🛣️"
+        name.contains("Garbage") -> "🗑️"
+        name.contains("Water") -> "💧"
+        name.contains("Street") -> "💡"
+        name.contains("Drainage") -> "🌊"
+        name.contains("Electric") -> "⚡"
+        name.contains("Safety") -> "🛡️"
+        else -> "📌"
+    }
 }

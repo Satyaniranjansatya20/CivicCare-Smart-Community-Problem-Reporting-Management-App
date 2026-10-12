@@ -38,6 +38,56 @@
             android:textColor="@color/civic_subtext"
             android:textSize="15sp" />
 
+        <!-- Category tiles -->
+        <GridLayout
+            android:id="@+id/llTiles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:columnCount="4">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="84dp" android:layout_columnWeight="1" android:layout_margin="4dp" android:background="@drawable/bg_card" android:gravity="center" android:orientation="vertical" android:tag="Road Damage">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🛣️" android:textSize="24sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Road" android:textColor="@color/civic_text" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="84dp" android:layout_columnWeight="1" android:layout_margin="4dp" android:background="@drawable/bg_card" android:gravity="center" android:orientation="vertical" android:tag="Garbage Issue">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🗑️" android:textSize="24sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Garbage" android:textColor="@color/civic_text" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="84dp" android:layout_columnWeight="1" android:layout_margin="4dp" android:background="@drawable/bg_card" android:gravity="center" android:orientation="vertical" android:tag="Water Leakage">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="💧" android:textSize="24sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Water" android:textColor="@color/civic_text" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="84dp" android:layout_columnWeight="1" android:layout_margin="4dp" android:background="@drawable/bg_card" android:gravity="center" android:orientation="vertical" android:tag="Street Light Problem">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="💡" android:textSize="24sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Light" android:textColor="@color/civic_text" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="84dp" android:layout_columnWeight="1" android:layout_margin="4dp" android:background="@drawable/bg_card" android:gravity="center" android:orientation="vertical" android:tag="Drainage Problem">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🌊" android:textSize="24sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Drainage" android:textColor="@color/civic_text" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="84dp" android:layout_columnWeight="1" android:layout_margin="4dp" android:background="@drawable/bg_card" android:gravity="center" android:orientation="vertical" android:tag="Electricity Issue">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⚡" android:textSize="24sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Electric" android:textColor="@color/civic_text" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="84dp" android:layout_columnWeight="1" android:layout_margin="4dp" android:background="@drawable/bg_card" android:gravity="center" android:orientation="vertical" android:tag="Public Safety">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🛡️" android:textSize="24sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Safety" android:textColor="@color/civic_text" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="84dp" android:layout_columnWeight="1" android:layout_margin="4dp" android:background="@drawable/bg_card" android:gravity="center" android:orientation="vertical" android:tag="Other">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📌" android:textSize="24sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Other" android:textColor="@color/civic_text" android:textSize="12sp" />
+            </LinearLayout>
+
+        </GridLayout>
+
         <!-- Title -->
         <EditText
             android:id="@+id/etTitle"
@@ -139,8 +189,6 @@
             android:paddingEnd="16dp"
             android:singleLine="true" />
 
-
-
         <!-- Photo -->
         <TextView
             android:id="@+id/tvAddPhoto"
@@ -164,9 +212,6 @@
             android:contentDescription="Complaint photo"
             android:scaleType="centerCrop"
             android:visibility="gone" />
-
-
-
 
         <!-- Submit -->
         <Button
