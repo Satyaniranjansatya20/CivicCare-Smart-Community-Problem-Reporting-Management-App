@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/civic_page_bg"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="←"
+        android:textColor="@color/civic_blue"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="My Complaints"
+        android:textColor="@color/civic_text"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvFilterAll"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_chip_selected"
+            android:gravity="center"
+            android:text="All"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvFilterPending"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card"
+            android:gravity="center"
+            android:text="Pending"
+            android:textColor="@color/civic_text"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvFilterProgress"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1.3"
+            android:background="@drawable/bg_card"
+            android:gravity="center"
+            android:text="In Progress"
+            android:textColor="@color/civic_text"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvFilterResolved"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card"
+            android:gravity="center"
+            android:text="Resolved"
+            android:textColor="@color/civic_text"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:text="No complaints here.\nTap Report a Problem to add one."
+        android:textColor="@color/civic_subtext"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvComplaints"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnNewComplaint"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/civic_blue"
+        android:text="+ REPORT A PROBLEM"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+</LinearLayout>
