@@ -95,6 +95,41 @@ class ReportComplaintActivity : AppCompatActivity() {
 
         setupTiles()
         setPriority("Medium")
+        restoreDraft()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        saveDraft()
+    }
+
+    private fun saveDraft() {
+        val title = etTitle.text.toString()
+        val description = etDescription.text.toString()
+        val location = etLocation.text.toString()
+        val prefs = getSharedPreferences("draft", MODE_PRIVATE)
+
+        if (title.isBlank() && description.isBlank() && location.isBlank() && selectedCategory.isEmpty()) {
+            prefs.edit().clear().apply()
+            return
+        }
+        prefs.edit()
+            .putString("title", title)
+            .putString("description", description)
+            .putString("location", location)
+            .putString("category", selectedCategory)
+            .putString("priority", selectedPriority)
+            .apply()
+    }
+
+    private fun restoreDraft() {
+        val prefs = getSharedPreferences("draft", MODE_PRIVATE)
+        etTitle.setText(prefs.getString("title", ""))
+        etDescription.setText(prefs.getString("description", ""))
+        etLocation.setText(prefs.getString("location", ""))
+        val category = prefs.getString("category", "") ?: ""
+        if (category.isNotEmpty()) chooseCategory(category)
+        setPriority(prefs.getString("priority", "Medium") ?: "Medium")
     }
 
     private fun choosePhotoSource() {
@@ -212,6 +247,7 @@ class ReportComplaintActivity : AppCompatActivity() {
         imgPreview.visibility = View.GONE
         tvAddPhoto.text = "📷  Add Photo (optional)"
         setPriority("Medium")
+        getSharedPreferences("draft", MODE_PRIVATE).edit().clear().apply()
     }
 
     private fun setupTiles() {
