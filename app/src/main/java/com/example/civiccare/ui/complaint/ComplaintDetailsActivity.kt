@@ -1,9 +1,11 @@
 package com.example.civiccare.ui.complaint
 
+import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -19,16 +21,22 @@ class ComplaintDetailsActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvBack).setOnClickListener { finish() }
 
         val id = intent.getIntExtra("id", 0)
+        val title = intent.getStringExtra("title") ?: ""
+        val category = intent.getStringExtra("category") ?: ""
+        val priority = intent.getStringExtra("priority") ?: ""
+        val location = intent.getStringExtra("location") ?: ""
+        val date = intent.getStringExtra("date") ?: ""
+        val description = intent.getStringExtra("description") ?: ""
         val status = intent.getStringExtra("status") ?: "Pending"
         val imagePath = intent.getStringExtra("imageUri") ?: ""
+        val code = "CC${1000 + id}"
 
-        findViewById<TextView>(R.id.tvTitle).text = intent.getStringExtra("title")
-        findViewById<TextView>(R.id.tvId).text = "ID: CC${1000 + id}"
-        findViewById<TextView>(R.id.tvMeta).text =
-            "${intent.getStringExtra("category")} • ${intent.getStringExtra("priority")} priority"
-        findViewById<TextView>(R.id.tvLocation).text = "📍 ${intent.getStringExtra("location")}"
-        findViewById<TextView>(R.id.tvDate).text = intent.getStringExtra("date")
-        findViewById<TextView>(R.id.tvDescription).text = intent.getStringExtra("description")
+        findViewById<TextView>(R.id.tvTitle).text = title
+        findViewById<TextView>(R.id.tvId).text = "ID: $code"
+        findViewById<TextView>(R.id.tvMeta).text = "$category • $priority priority"
+        findViewById<TextView>(R.id.tvLocation).text = "📍 $location"
+        findViewById<TextView>(R.id.tvDate).text = date
+        findViewById<TextView>(R.id.tvDescription).text = description
 
         val tvStatus = findViewById<TextView>(R.id.tvStatus)
         tvStatus.text = status
@@ -44,6 +52,19 @@ class ComplaintDetailsActivity : AppCompatActivity() {
             val img = findViewById<ImageView>(R.id.imgPhoto)
             img.setImageURI(Uri.fromFile(File(imagePath)))
             img.visibility = View.VISIBLE
+        }
+
+        findViewById<Button>(R.id.btnShare).setOnClickListener {
+            val message = "CivicCare complaint $code\n" +
+                    "$title\n" +
+                    "Category: $category ($priority priority)\n" +
+                    "Location: $location\n" +
+                    "Status: $status\n" +
+                    "Reported on: $date"
+            val share = Intent(Intent.ACTION_SEND)
+                .setType("text/plain")
+                .putExtra(Intent.EXTRA_TEXT, message)
+            startActivity(Intent.createChooser(share, "Share complaint"))
         }
     }
 }
